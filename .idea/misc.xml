@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/chdms/Desktop/last (2)/StyleHelper/app/src/main/res/drawable/button_shape.xml" value="0.1945" />
+        <entry key="..\:/Users/chdms/Desktop/last (2)/StyleHelper/app/src/main/res/layout/activity_intro.xml" value="0.24864130434782608" />
+        <entry key="..\:/Users/chdms/Desktop/last (2)/StyleHelper/app/src/main/res/layout/activity_main.xml" value="0.24864130434782608" />
+        <entry key="..\:/Users/chdms/Desktop/last (2)/StyleHelper/app/src/main/res/layout/fragment_mypage.xml" value="0.24864130434782608" />
+        <entry key="..\:/Users/chdms/Desktop/last (2)/StyleHelper/app/src/main/res/layout/fragment_shop.xml" value="0.24139492753623187" />
+        <entry key="..\:/Users/chdms/Desktop/last (2)/StyleHelper/app/src/main/res/layout/item_recycler_ex.xml" value="0.1342451874366768" />
         <entry key="..\:/Users/chdms/Desktop/last/StyleHelper/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.175" />
         <entry key="..\:/Users/chdms/Desktop/last/StyleHelper/app/src/main/res/drawable/button_shape.xml" value="0.175" />
         <entry key="..\:/Users/chdms/Desktop/last/StyleHelper/app/src/main/res/drawable/ic_launcher_background.xml" value="0.175" />
