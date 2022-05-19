@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_Home"
+        android:title="메인화면"
+        android:icon="@drawable/ic_home" />
+    <item android:id="@+id/action_Shop"
+        android:title="쇼핑몰"
+        android:icon="@drawable/ic_shop" />
+    <item android:id="@+id/action_Plus"
+        android:title="더보기"
+        android:icon="@drawable/ic_plus" />
+    <item android:id="@+id/action_Alarm"
+        android:title="알람"
+        android:icon="@drawable/ic_alarm" />
+    <item android:id="@+id/action_MyPage"
+        android:title="마이페이지"
+        android:icon="@drawable/ic_mypage" />
+</menu>

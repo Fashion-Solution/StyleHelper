@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1050771749999",
+    "project_id": "stylehelperdy",
+    "storage_bucket": "stylehelperdy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050771749999:android:9efe45875297643ee0e19a",
+        "android_client_info": {
+          "package_name": "com.example.stylehelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050771749999-mplcph877p40em2ns9obj7jj5n43jkuh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stylehelper",
+            "certificate_hash": "567fdda0ecd67582d7639bbbfd58943966de289c"
+          }
+        },
+        {
+          "client_id": "1050771749999-5e4to9p1glr0q5bjhpdlnoa77l8lue4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBESMI5LaXCZDJkI2JmC8ajceWaib6ZelQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050771749999-5e4to9p1glr0q5bjhpdlnoa77l8lue4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
