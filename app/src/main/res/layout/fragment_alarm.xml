@@ -1,66 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         tools:context=".fragments.AlarmFragment">
 
         <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="알람" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:layout_height="match_parent"
+                android:text="알람" />
 
-                <ImageView
-                    android:id="@+id/homeTap"
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/alarmlist"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_home" />
+                    android:layout_height="60dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
-                <ImageView
-                    android:id="@+id/shopTap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_shop" />
+                    <ImageView
+                        android:id="@+id/homeTap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_home" />
 
-                <ImageView
-                    android:id="@+id/plusTap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_plus" />
+                    <ImageView
+                        android:id="@+id/shopTap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_shop" />
 
-                <ImageView
-                    android:id="@+id/alarmTap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_alarm" />
+                    <ImageView
+                        android:id="@+id/plusTap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_plus" />
 
-                <ImageView
-                    android:id="@+id/mypageTap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_mypage" />
+                    <ImageView
+                        android:id="@+id/alarmTap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_alarm" />
 
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/mypageTap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_mypage" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
-    </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>
