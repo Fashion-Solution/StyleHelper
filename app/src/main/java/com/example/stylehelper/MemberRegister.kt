@@ -18,11 +18,8 @@ class MemberRegister : AppCompatActivity() {
         auth = Firebase.auth
         setContentView(R.layout.activity_member_register)
         btn_register = findViewById<Button>(R.id.btn_register)
-        var edit_id : TextView
-        var edit_pw : TextView
-
-        edit_id = findViewById<TextView>(R.id.edit_id)
-        edit_pw = findViewById<TextView>(R.id.edit_pw)
+        var edit_id : TextView = findViewById<TextView>(R.id.edit_id)
+        var edit_pw : TextView = findViewById<TextView>(R.id.edit_pw)
 
         // 계정 생성 버튼
         btn_register.setOnClickListener {
