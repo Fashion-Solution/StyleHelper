@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         setContentView(R.layout.activity_main)
 
-
-
         btn_register.setOnClickListener {   //회원가입 화면 이동
             var intent1 = Intent(applicationContext, MemberRegister::class.java)
             startActivity(intent1)

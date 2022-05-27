@@ -78,6 +78,37 @@
                     android:layout_height="wrap_content"
                     android:text="글쓰기" />
 
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TableRow>
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/cb1"
+                            android:text="cb1"/>
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/cb2"
+                            android:text="cb2"/>
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/cb3"
+                            android:text="cb3"/>
+                    </TableRow>
+                </TableLayout>
+
+
+                <ImageView
+                    android:id="@+id/imgArea"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal"/>
+
+
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

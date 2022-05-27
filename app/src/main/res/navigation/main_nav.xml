@@ -32,28 +32,11 @@
             android:id="@+id/action_shopFragment_to_mypageFragment"
             app:destination="@id/mypageFragment" />
         <action
-            android:id="@+id/action_shopFragment_to_plusFragment"
-            app:destination="@id/plusFragment" />
-        <action
             android:id="@+id/action_shopFragment_to_alarmFragment"
             app:destination="@id/alarmFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/plusFragment"
-        android:name="com.dongyang.botnav.fragments.PlusFragment"
-        android:label="PlusFragment" >
         <action
-            android:id="@+id/action_plusFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <action
-            android:id="@+id/action_plusFragment_to_shopFragment"
-            app:destination="@id/shopFragment" />
-        <action
-            android:id="@+id/action_plusFragment_to_mypageFragment"
-            app:destination="@id/mypageFragment" />
-        <action
-            android:id="@+id/action_plusFragment_to_alarmFragment"
-            app:destination="@id/alarmFragment" />
+            android:id="@+id/action_shopFragment_to_plusFragment"
+            app:destination="@id/plusFragment" />
     </fragment>
     <fragment
         android:id="@+id/alarmFragment"
@@ -83,10 +66,27 @@
             android:id="@+id/action_mypageFragment_to_shopFragment"
             app:destination="@id/shopFragment" />
         <action
-            android:id="@+id/action_mypageFragment_to_plusFragment"
-            app:destination="@id/plusFragment" />
-        <action
             android:id="@+id/action_mypageFragment_to_alarmFragment"
             app:destination="@id/alarmFragment" />
+        <action
+            android:id="@+id/action_mypageFragment_to_plusFragment"
+            app:destination="@id/plusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plusFragment"
+        android:name="com.example.stylehelper.fragments.PlusFragment"
+        android:label="PlusFragment" >
+        <action
+            android:id="@+id/action_plusFragment_to_mypageFragment"
+            app:destination="@id/mypageFragment" />
+        <action
+            android:id="@+id/action_plusFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_plusFragment_to_alarmFragment"
+            app:destination="@id/alarmFragment" />
+        <action
+            android:id="@+id/action_plusFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
     </fragment>
 </navigation>

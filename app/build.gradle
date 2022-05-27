@@ -82,4 +82,7 @@ dependencies {
     //파이어베이스 게시글 (리얼타임)
     implementation platform('com.google.firebase:firebase-bom:29.3.1')
     implementation 'com.google.firebase:firebase-database-ktx'
+    //파이어베이스 이미지 storage
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
 }
