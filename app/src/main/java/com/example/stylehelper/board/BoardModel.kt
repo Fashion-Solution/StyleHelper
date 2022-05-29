@@ -6,7 +6,8 @@ data class BoardModel (
     val uid : String="",
     val time : String="",
     val style : MutableList<String> = mutableListOf<String>(),
-    val likecount : Int=0
+    val likecount : Int=0,
+    val likes : MutableMap<String, Boolean> = mutableMapOf<String,Boolean>()
     //val tag : Array<String>=Array,
     //val imageURL : String="",
     //val like : Int=0,

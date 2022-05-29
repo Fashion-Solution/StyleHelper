@@ -1,5 +1,6 @@
 package com.example.stylehelper.board
 
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
@@ -22,11 +23,9 @@ import com.google.firebase.storage.ktx.storage
 
 class BoardListActivity : AppCompatActivity() {
 
-
-    private var TAG = BoardListActivity::class.java.simpleName
     lateinit var LVAdapter : ListViewAdapter
-    val list = mutableListOf<BoardModel>()
-
+    private val boardDatalist = mutableListOf<BoardModel>()
+    private val boardKeyList = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,31 +34,42 @@ class BoardListActivity : AppCompatActivity() {
         val writeBtn = findViewById<Button>(R.id.writeBtn)
         writeBtn.setOnClickListener{
             val intent = Intent(this, BoardWriteActivity::class.java)
+            //intent.putExtra("key", boardKeyList[position])
             startActivity(intent)
         }
 
         //리스트 뷰 생성
-        LVAdapter = ListViewAdapter(list)
+        LVAdapter = ListViewAdapter(boardDatalist)
         val lv = findViewById<ListView>(R.id.lv)
         lv.adapter=LVAdapter
 
-        getFBBoardData()
+        lv.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, BoardInsideActivity::class.java)
+            intent.putExtra("key", boardKeyList[position])
+            startActivity(intent)
+        }
 
-        /*val key = intent.getStringExtra("key")
-        getImageData(key.toString())*/
+        getBoardData()
+
+        val key = intent.getStringExtra("key")
+        //getImageData(key.toString())
     }
 
-    private fun getFBBoardData(){
+    private fun getBoardData(){
+
         val postListener = object : ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 //리스트 새로고침
-                list.clear()
+                boardDatalist.clear()
 
                 for(dataModel in dataSnapshot.children){
                     val item = dataModel.getValue(BoardModel::class.java)
-                    list.add(item!!)
+                    boardDatalist.add(item!!)
+                    boardKeyList.add(dataModel.key.toString())
                 }
+                boardDatalist.reverse()
+                boardKeyList.reverse()
                 //리스트 재동기화
                 LVAdapter.notifyDataSetChanged()
             }
@@ -72,22 +82,20 @@ class BoardListActivity : AppCompatActivity() {
         FBRef.boardRef.addValueEventListener(postListener)
     }
 
-    private fun getImageData(key : String){
-        // Reference to an image file in Cloud Storage
-        val storageReference = Firebase.storage.reference.child(key+".png")
+    /*private fun getImageData(key: String) {
+        val storageReference = Firebase.storage.reference.child(key + ".png")
 
         // ImageView in your Activity
-        val imageViewFromRB = findViewById<ImageView>(R.id.img)
 
-        storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
-            if(task.isSuccessful){
-                Glide.with(this)
-                    .load(task.result)
-                    .into(imageViewFromRB)
-            }else{
+        val imageView = findViewById<ImageView>(R.id.img)
+
+        storageReference.downloadUrl.addOnCompleteListener{ task ->
+            if(task.isSuccessful) {
+                Glide.with(this).load(task.result).into(imageView)
+            } else {
 
             }
-        })
-    }
+        }
 
+    }*/
 }

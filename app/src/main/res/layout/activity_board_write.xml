@@ -15,9 +15,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-
+                android:orientation="vertical"
+                android:layout_margin="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -65,19 +64,6 @@
                     android:layout_height="0.5dp"
                     android:background="#000000"/>
 
-
-                <Button
-                    android:id="@+id/imgUploadBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이미지 업로드" />
-
-                <Button
-                    android:id="@+id/writeUploadBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="글쓰기" />
-
                 <TableLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -100,17 +86,24 @@
                     </TableRow>
                 </TableLayout>
 
-
                 <ImageView
                     android:id="@+id/imgArea"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"/>
 
+                <Button
+                    android:id="@+id/imgUploadBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="이미지 업로드" />
 
-
+                <Button
+                    android:id="@+id/writeUploadBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="글쓰기" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
 </layout>
