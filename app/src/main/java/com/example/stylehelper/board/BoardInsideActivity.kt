@@ -21,6 +21,8 @@ import kotlinx.android.synthetic.main.activity_board_inside.*
 class BoardInsideActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityBoardInsideBinding
+    private var auth : FirebaseAuth? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +76,7 @@ class BoardInsideActivity : AppCompatActivity() {
     }
 
     private fun onStarClicked(postRef: DatabaseReference) {
+        val uid = ""
         postRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
                 val dataModel = mutableData.getValue(BoardModel::class.java)

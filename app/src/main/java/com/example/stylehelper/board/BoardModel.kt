@@ -11,7 +11,7 @@ data class BoardModel (
     var time : String="",
     var style : MutableList<String> = mutableListOf<String>(),
     var likecount : Int=0,
-    var likes : MutableMap<String, Boolean> = mutableMapOf<String,Boolean>()
+    var likes : MutableMap<String, Boolean> = HashMap()
     //val tag : Array<String>=Array,
     //val imageURL : String="",
     //val like : Int=0,
