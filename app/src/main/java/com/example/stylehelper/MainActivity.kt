@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
     //로그인 성공 시 페이지 이동
     fun moveMainPage(user: FirebaseUser?){
         if( user!= null){
-            startActivity(Intent(this, LobbyActivity::class.java))
+            startActivity(Intent(this, BoardListActivity::class.java))
             finish()
         }
     }

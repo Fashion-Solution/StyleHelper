@@ -1,7 +1,10 @@
 package com.example.stylehelper.board
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
@@ -12,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import kotlinx.android.synthetic.main.activity_board_inside.*
 
 
 class BoardInsideActivity : AppCompatActivity() {
@@ -28,9 +32,13 @@ class BoardInsideActivity : AppCompatActivity() {
 
         }
 
-        var key = intent.getStringExtra("key")
-        getBoardData(key.toString())
-        getImageData(key.toString())
+        var key = intent.getStringExtra("key").toString()
+        getBoardData(key)
+        getImageData(key)
+
+        likebtn.setOnClickListener {
+            onStarClicked(FBRef.boardRef)
+        }
     }
 
     private fun getBoardData(key: String) {
@@ -42,7 +50,6 @@ class BoardInsideActivity : AppCompatActivity() {
                 binding.contentArea.text = dataModel!!.content
                 binding.likeArea.text = "likecount: " + dataModel!!.likecount
             }
-
             override fun onCancelled(error: DatabaseError) {
 
             }
@@ -65,4 +72,59 @@ class BoardInsideActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun onStarClicked(postRef: DatabaseReference) {
+        postRef.runTransaction(object : Transaction.Handler {
+            override fun doTransaction(mutableData: MutableData): Transaction.Result {
+                val dataModel = mutableData.getValue(BoardModel::class.java)
+                    ?: return Transaction.success(mutableData)
+
+                if (dataModel.likes.containsKey(uid)) {
+                    // Unstar the post and remove self from stars
+                    dataModel.likecount = dataModel.likecount - 1
+                    dataModel.likes.remove(uid)
+                } else {
+                    // Star the post and add self to stars
+                    dataModel.likecount = dataModel.likecount + 1
+                    dataModel.likes[uid] = true
+                }
+
+                // Set value and report transaction success
+                mutableData.value = dataModel
+                return Transaction.success(mutableData)
+            }
+
+            override fun onComplete(
+                databaseError: DatabaseError?,
+                committed: Boolean,
+                currentData: DataSnapshot?
+            ) {
+                // Transaction completed
+                Log.d(TAG, "postTransaction:onComplete:" + databaseError!!)
+            }
+        })
+    }
+
+ /*   private fun onClickLike(key: String) {
+        var postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                var dataModel = dataSnapshot.getValue(BoardModel::class.java)
+
+                if (dataModel!!.likes.containsKey(*//*현재 사용자의 uid 주소*//*)) {
+                    dataModel!!.likecount -= 1
+                    FBRef.boardRef.child(key).addValueEventListener(postListener)
+
+                } else {
+                    dataModel!!.likecount += 1
+                    FBRef.boardRef.child(key).child("likes").(postListener)
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        }
+        FBRef.boardRef.child(key).addValueEventListener(postListener)
+    }*/
 }
