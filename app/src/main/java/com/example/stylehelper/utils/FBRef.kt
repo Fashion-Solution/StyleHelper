@@ -8,6 +8,7 @@ class FBRef {
     companion object{
         private val database = Firebase.database
 
-        val boardRef = database.getReference("board")
+        val dailyboardRef = database.getReference("Daily")
+        val communityboardRef = database.getReference("community")
     }
 }

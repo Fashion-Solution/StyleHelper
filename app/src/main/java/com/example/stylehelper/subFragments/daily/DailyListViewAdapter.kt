@@ -1,13 +1,13 @@
-package com.example.stylehelper
+package com.example.stylehelper.subFragments.daily
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.stylehelper.board.BoardModel
+import com.example.stylehelper.R
 
-class ListViewAdapter(val List : MutableList<BoardModel>) :BaseAdapter() {
+class DailyListViewAdapter(val List : MutableList<DailyBoardModel>) :BaseAdapter() {
     override fun getCount(): Int {
         return List.count()
     }
@@ -25,14 +25,12 @@ class ListViewAdapter(val List : MutableList<BoardModel>) :BaseAdapter() {
 
         if (view == null) {
             view =
-                LayoutInflater.from(parent?.context).inflate(R.layout.listview_item, parent, false)
+                LayoutInflater.from(parent?.context).inflate(R.layout.listview_daily, parent, false)
 
         }
 
         val title = view?.findViewById<TextView>(R.id.title)
-        val time = view?.findViewById<TextView>(R.id.time)
         title!!.text = List[position].title
-        time!!.text = List[position].time
         return view!!
     }
 

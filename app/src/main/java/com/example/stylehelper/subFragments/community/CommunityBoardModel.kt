@@ -1,15 +1,14 @@
-package com.example.stylehelper.board
+package com.example.stylehelper.subFragments.community
 
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
-data class BoardModel (
+data class CommunityBoardModel (
     var title : String="",
     var content : String="",
     var uid : String="",
     var time : String="",
-    var style : MutableList<String> = mutableListOf<String>(),
     var likecount : Int=0,
     var likes : MutableMap<String, Boolean> = HashMap()
     //val tag : Array<String>=Array,
@@ -24,7 +23,6 @@ data class BoardModel (
             "content" to content,
             "uid" to uid,
             "time" to time,
-            "style" to style,
             "likecount" to likecount,
             "likes" to likes
         )

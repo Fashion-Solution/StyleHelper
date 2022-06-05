@@ -13,13 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StyleHelper">
         <activity
-            android:name=".board.BoardInsideActivity"
+            android:name=".subFragments.daily.DailyBoardWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".board.BoardWriteActivity"
+            android:name=".subFragments.daily.DailyBoardInsideActivity"
             android:exported="false" />
         <activity
-            android:name=".board.BoardListActivity"
+            android:name=".subFragments.community.CommunityBoardInsideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".subFragments.community.CommunityBoardWriteActivity"
             android:exported="false" />
         <activity
             android:name=".LobbyActivity"

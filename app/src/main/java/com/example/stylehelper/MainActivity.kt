@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.stylehelper.board.BoardListActivity
-import com.example.stylehelper.board.BoardWriteActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -122,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     //로그인 성공 시 페이지 이동chdmds
     fun moveMainPage(user: FirebaseUser?){
         if( user!= null){
-            startActivity(Intent(this, BoardListActivity::class.java))
+            startActivity(Intent(this, LobbyActivity::class.java))
             finish()
         }
     }

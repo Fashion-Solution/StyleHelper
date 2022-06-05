@@ -1,41 +1,35 @@
-package com.example.stylehelper.board
+package com.example.stylehelper.subFragments.daily
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.example.stylehelper.R
-import com.example.stylehelper.databinding.ActivityBoardInsideBinding
+import com.example.stylehelper.databinding.ActivityDailyBoardInsideBinding
 import com.example.stylehelper.utils.FBRef
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import kotlinx.android.synthetic.main.activity_board_inside.*
-import kotlinx.android.synthetic.main.fragment_best.*
+import kotlinx.android.synthetic.main.activity_daily_board_inside.*
 
 
-class BoardInsideActivity : AppCompatActivity() {
+class DailyBoardInsideActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityBoardInsideBinding
+    private lateinit var binding : ActivityDailyBoardInsideBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_board_inside)
+        setContentView(R.layout.activity_daily_board_inside)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_board_inside)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_daily_board_inside)
 
         var key = intent.getStringExtra("key").toString()
         getBoardData(key)
         getImageData(key)
 
         binding.likebtn.setOnClickListener {
-            onStarClicked(FBRef.boardRef.child(key))
+            onStarClicked(FBRef.dailyboardRef.child(key))
         }
 
     }
@@ -46,7 +40,7 @@ class BoardInsideActivity : AppCompatActivity() {
             val uid = user.uid
             val postListener = object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val dataModel = dataSnapshot.getValue(BoardModel::class.java)
+                    val dataModel = dataSnapshot.getValue(DailyBoardModel::class.java)
                     binding.titleArea.text = dataModel!!.title
                     binding.timeArea.text = dataModel!!.time
                     binding.contentArea.text = dataModel!!.content
@@ -65,7 +59,7 @@ class BoardInsideActivity : AppCompatActivity() {
                 }
             }
             //FBRef에서 데이터를 가져온다.
-            FBRef.boardRef.child(key).addValueEventListener(postListener)
+            FBRef.dailyboardRef.child(key).addValueEventListener(postListener)
         }
     }
 
@@ -78,8 +72,6 @@ class BoardInsideActivity : AppCompatActivity() {
         storageReference.downloadUrl.addOnCompleteListener{ task ->
             if(task.isSuccessful) {
                 Glide.with(this).load(task.result).into(imageView)
-            } else {
-
             }
         }
     }
@@ -91,7 +83,7 @@ class BoardInsideActivity : AppCompatActivity() {
             val uid = user.uid
             postRef.runTransaction(object : Transaction.Handler {
                 override fun doTransaction(mutableData: MutableData): Transaction.Result {
-                    val dataModel = mutableData.getValue(BoardModel::class.java)
+                    val dataModel = mutableData.getValue(DailyBoardModel::class.java)
                         ?: return Transaction.success(mutableData)
 
                     if (dataModel.likes.containsKey(uid)) {
