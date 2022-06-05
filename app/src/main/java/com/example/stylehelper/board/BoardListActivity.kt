@@ -52,7 +52,6 @@ class BoardListActivity : AppCompatActivity() {
         getBoardData()
 
         val key = intent.getStringExtra("key")
-        //getImageData(key.toString())
     }
 
     private fun getBoardData(){
@@ -81,21 +80,4 @@ class BoardListActivity : AppCompatActivity() {
         //FBRef에서 데이터를 가져온다.
         FBRef.boardRef.addValueEventListener(postListener)
     }
-
-    /*private fun getImageData(key: String) {
-        val storageReference = Firebase.storage.reference.child(key + ".png")
-
-        // ImageView in your Activity
-
-        val imageView = findViewById<ImageView>(R.id.img)
-
-        storageReference.downloadUrl.addOnCompleteListener{ task ->
-            if(task.isSuccessful) {
-                Glide.with(this).load(task.result).into(imageView)
-            } else {
-
-            }
-        }
-
-    }*/
 }

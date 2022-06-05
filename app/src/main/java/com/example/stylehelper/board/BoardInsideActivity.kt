@@ -17,6 +17,7 @@ import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_board_inside.*
+import kotlinx.android.synthetic.main.fragment_best.*
 
 
 class BoardInsideActivity : AppCompatActivity() {
@@ -40,20 +41,32 @@ class BoardInsideActivity : AppCompatActivity() {
     }
 
     private fun getBoardData(key: String) {
-        val postListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val dataModel = dataSnapshot.getValue(BoardModel::class.java)
-                binding.titleArea.text = dataModel!!.title
-                binding.timeArea.text = dataModel!!.time
-                binding.contentArea.text = dataModel!!.content
-                binding.likeArea.text = "likecount: " + dataModel!!.likecount
-            }
-            override fun onCancelled(error: DatabaseError) {
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val uid = user.uid
+            val postListener = object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val dataModel = dataSnapshot.getValue(BoardModel::class.java)
+                    binding.titleArea.text = dataModel!!.title
+                    binding.timeArea.text = dataModel!!.time
+                    binding.contentArea.text = dataModel!!.content
+                    binding.likeArea.text = "likecount: " + dataModel!!.likecount
 
+                    if (dataModel.likes.containsKey(uid)) {
+                        // Unstar the post and remove self from stars
+                        likebtn.setImageResource(R.drawable.like)
+                    } else {
+                        // Star the post and add self to stars
+                        likebtn.setImageResource(R.drawable.like2)
+                    }
+                }
+                override fun onCancelled(error: DatabaseError) {
+
+                }
             }
+            //FBRef에서 데이터를 가져온다.
+            FBRef.boardRef.child(key).addValueEventListener(postListener)
         }
-        //FBRef에서 데이터를 가져온다.
-        FBRef.boardRef.child(key).addValueEventListener(postListener)
     }
 
     private fun getImageData(key: String) {

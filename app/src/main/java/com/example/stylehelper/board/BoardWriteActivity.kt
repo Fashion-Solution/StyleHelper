@@ -42,6 +42,7 @@ class BoardWriteActivity : AppCompatActivity() {
             val time = FBAuth.getTime()
             var style = mutableListOf<String>()
             var likes = mutableMapOf<String, Boolean>()
+            var likecount = 0
 
             if (binding.cb1.isChecked()) // 이 부분에 스타일 목록 적을 것
                 style.add(binding.cb1.text.toString())
@@ -63,7 +64,7 @@ class BoardWriteActivity : AppCompatActivity() {
 
             FBRef.boardRef
                 .child(key)
-                .setValue(BoardModel(title, content, uid, time, style, likecount = 10, likes))
+                .setValue(BoardModel(title, content, uid, time, style, likecount, likes))
 
             Toast.makeText(this, "게시글 입력 완료", Toast.LENGTH_LONG).show()
 
