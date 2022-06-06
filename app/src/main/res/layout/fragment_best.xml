@@ -205,11 +205,20 @@
                         <FrameLayout>
 
                             <ImageView
+                                android:id="@+id/imgArea1"
                                 android:layout_width="125dp"
                                 android:layout_height="150dp"
                                 android:layout_gravity="left"
                                 android:layout_margin="30dp"
                                 android:src="@drawable/img1" />
+                            <TextView
+                                android:id="@+id/first_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="60dp"
+                                android:text="title"
+                                android:textSize="25dp" />
 
                             <TextView
                                 android:layout_width="30dp"
@@ -252,6 +261,15 @@
                                 android:src="@drawable/img1" />
 
                             <TextView
+                                android:id="@+id/second_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="60dp"
+                                android:text="title"
+                                android:textSize="25dp" />
+
+                            <TextView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="20dp"
@@ -292,6 +310,15 @@
                                 android:src="@drawable/img1" />
 
                             <TextView
+                                android:id="@+id/third_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="60dp"
+                                android:text="title"
+                                android:textSize="25dp" />
+
+                            <TextView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="20dp"
@@ -330,6 +357,15 @@
                                 android:layout_gravity="left"
                                 android:layout_margin="30dp"
                                 android:src="@drawable/img1" />
+
+                            <TextView
+                                android:id="@+id/fourth_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="60dp"
+                                android:text="title"
+                                android:textSize="25dp" />
 
                             <TextView
                                 android:layout_width="30dp"
